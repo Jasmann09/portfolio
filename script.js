@@ -1,4 +1,16 @@
 $(document).ready(function(){
+  var xhr= new XMLHttpRequest();
+  xhr.open('GET','data.txt',true);
+  xhr.onload=async function(){
+    if(this.status==200){
+      console.log(this.responseText);
+      var da=this.responseText;
+      console.log(da);
+      await $('#ajx').text(da);
+    }
+  }
+  xhr.send();
+
 
   $('#menu').click(function(){
       $(this).toggleClass('fa-times');
